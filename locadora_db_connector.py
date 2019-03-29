@@ -100,48 +100,117 @@ dw_engine =  create_engine(
 
 # ------------------ INICIO SECAO DE TABELAS ARTISTAS ------------------
 
-query_artistas = engine.execute('SELECT * FROM ARTISTAS')
-
-print("Print Artistas")
-
-result_artistas = []
-
-for row in query_artistas:
-    result_artistas.append(row)
-
-
-print(result_artistas)
-
-result_dw_artistas = []
-
-for linha in result_artistas:
-
-    # tipo = ""
-    # nac_bras = ""
-    #
-    # if linha[1] == "B":
-    #     tipo = "Banda"
-    # elif linha[1] == "D":
-    #     tipo = "Dupla"
-    # elif linha[1] == "I":
-    #     tipo = "Artista Individual"
-    #
-    # if linha[2] == "V":
-    #     nac_bras = "Artista Nacional"
-    # else:
-    #     nac_bras = "Artista Internacional"
-
-    result_dw_artistas.append([linha[0],linha[1],linha[2],linha[6]])
-
-print("\n------ Print DW Artistas -------")
-
-print(result_dw_artistas)
-
-for row_dw in result_dw_artistas:
-    dw_engine.execute('INSERT INTO DM_ARTISTA (ID_ART,TPO_ART, NAC_BRAS, NOM_ART) VALUES (:id, :tipo, :nac_bras, :nome)',
-                      {'id': str(row_dw[0]), 'tipo': str(row_dw[1]), 'nac_bras': str(row_dw[2]), 'nome': str(row_dw[3])})
-
-print("inserts done")
+# query_artistas = engine.execute('SELECT * FROM ARTISTAS')
+#
+# print("Print Artistas")
+#
+# result_artistas = []
+#
+# for row in query_artistas:
+#     result_artistas.append(row)
+#
+#
+# print(result_artistas)
+#
+# result_dw_artistas = []
+#
+# for linha in result_artistas:
+#
+#     # tipo = ""
+#     # nac_bras = ""
+#     #
+#     # if linha[1] == "B":
+#     #     tipo = "Banda"
+#     # elif linha[1] == "D":
+#     #     tipo = "Dupla"
+#     # elif linha[1] == "I":
+#     #     tipo = "Artista Individual"
+#     #
+#     # if linha[2] == "V":
+#     #     nac_bras = "Artista Nacional"
+#     # else:
+#     #     nac_bras = "Artista Internacional"
+#
+#     result_dw_artistas.append([linha[0],linha[1],linha[2],linha[6]])
+#
+# print("\n------ Print DW Artistas -------")
+#
+# print(result_dw_artistas)
+#
+# for row_dw in result_dw_artistas:
+#     dw_engine.execute('INSERT INTO DM_ARTISTA (ID_ART,TPO_ART, NAC_BRAS, NOM_ART) VALUES (:id, :tipo, :nac_bras, :nome)',
+#                       {'id': str(row_dw[0]), 'tipo': str(row_dw[1]), 'nac_bras': str(row_dw[2]), 'nome': str(row_dw[3])})
+#
+# print("inserts done")
 
 
 # ------------------ FIM SECAO DE TABELAS ARTISTAS ------------------
+
+
+
+# ------------------ INICIO SECAO DE TABELAS GRAVADORAS ------------------
+
+# query_gravadoras = engine.execute('SELECT * FROM GRAVADORAS')
+#
+# print("Print Artistas")
+#
+# result_gravadoras = []
+#
+# for row in query_gravadoras:
+#     result_gravadoras.append(row)
+#
+#
+# print(result_gravadoras)
+#
+# result_dw_gravadoras = []
+#
+# for linha in result_gravadoras:
+#
+#     result_dw_gravadoras.append([linha[0],linha[1],linha[2],linha[3]])
+#
+# print("\n------ Print DW Gravadoras -------")
+#
+# print(result_dw_gravadoras)
+# #
+# for row_dw in result_dw_gravadoras:
+#     dw_engine.execute('INSERT INTO DM_GRAVADORA (ID_GRAV,UF_GRAV, NAC_BRAS, NOM_GRAV) VALUES (:id, :uf, :nac_bras, :nome)',
+#                       {'id': str(row_dw[0]), 'uf': str(row_dw[1]), 'nac_bras': str(row_dw[2]), 'nome': str(row_dw[3])})
+#
+# print("inserts done")
+
+
+# ------------------ FIM SECAO DE TABELAS GRAVADORAS ------------------
+
+
+# ------------------ INICIO SECAO DE TABELAS TITULOS ------------------
+
+query_titulos = engine.execute('SELECT * FROM TITULOS')
+
+print("Print Titulos")
+
+result_titulos = []
+
+for row in query_titulos:
+    result_titulos.append(row)
+
+
+print(result_titulos)
+
+result_dw_titulos = []
+
+for linha in result_titulos:
+
+    result_dw_titulos.append([linha[0],linha[1],linha[2],linha[7]])
+
+print("\n------ Print DW Gravadoras -------")
+
+print(result_dw_titulos)
+#
+# for row_dw in result_dw_titulos:
+#     dw_engine.execute('INSERT INTO DM_TITULO (ID_GRAV,UF_GRAV, NAC_BRAS, NOM_GRAV) VALUES (:id, :uf, :nac_bras, :nome)',
+#                       {'id': str(row_dw[0]), 'uf': str(row_dw[1]), 'nac_bras': str(row_dw[2]), 'nome': str(row_dw[3])})
+# print("inserts done")
+#
+
+
+# ------------------ FIM SECAO DE TABELAS TITULOS ------------------
